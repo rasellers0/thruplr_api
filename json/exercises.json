@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        " name": "Treadmill",
+        "metrics": [
+            {
+                "id": 0,
+                "metricName": "Time",
+                "value": 0
+            },
+            {
+                "id": 1,
+                "metricName": "Miles",
+                "value": 0
+            },
+            {
+                "id": 2,
+                "metricName": "Calories",
+                "value": 0
+            }
+        ],
+        "notes": ""
+    },
+    {
+        "id": 2,
+        "name": "Planks",
+        "metrics": [
+            {
+                "id": 0,
+                "metricName": "Sets of Time",
+                "value": 0
+            },
+            {
+                "id": 1,
+                "metricName": "Weight",
+                "value": 0
+            }
+        ],
+        "notes": ""
+    },
+    {
+        "id": 3,
+        "name": "Sit-Ups",
+        "metrics": [
+            {
+                "id": 0,
+                "metricName": "Sets",
+                "value": 0
+            },
+            {
+                "id": 1,
+                "metricName": "Reps",
+                "value": 0
+            },
+            {
+                "id": 2,
+                "metricName": "Weight",
+                "value": 0
+            }
+        ],
+        "notes": ""
+    },
+    {
+        "id": 4,
+        "name": "Split Lunges",
+        "metrics": [
+            {
+                "id": 0,
+                "metricName": "Sets",
+                "value": 0
+            },
+            {
+                "id": 1,
+                "metricName": "Reps",
+                "value": 0
+            },
+            {
+                "id": 2,
+                "metricName": "Weight",
+                "value": 0
+            }
+        ],
+        "notes": ""
+    },
+    {
+        "id": 5,
+        "name": "Barbell Squat",
+        "metrics": [
+            {
+                "id": 0,
+                "metricName": "Sets",
+                "value": 0
+            },
+            {
+                "id": 1,
+                "metricName": "Reps",
+                "value": 0
+            },
+            {
+                "id": 2,
+                "metricName": "Weight",
+                "value": 0
+            }
+        ],
+        "notes": ""
+    }
+]
