@@ -3,7 +3,6 @@ package handlers
 import (
 	"database/sql"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -11,7 +10,6 @@ import (
 )
 
 func DoLogin(c echo.Context) error {
-	fmt.Println("got to PostAccountCreation!!")
 
 	json_map := make(map[string]interface{})
 	err := json.NewDecoder(c.Request().Body).Decode(&json_map)
@@ -23,18 +21,19 @@ func DoLogin(c echo.Context) error {
 
 		var (
 			pw_value string
+			userid   string
 		)
 
 		db, err := sql.Open("mysql", "root:NovemberKazoo01!@tcp(127.0.0.1:3306)/thruplr")
 
-		stmt, err := db.Query("select AES_DECRYPT(hash_creds, 'some_passkey') from users where username = ?", name)
+		stmt, err := db.Query("select user_id, AES_DECRYPT(hash_creds, 'some_passkey') from users where username = ?", name)
 		if err != nil {
 			log.Fatal(err)
 		}
 		defer stmt.Close()
 
 		if stmt.Next() {
-			err := stmt.Scan(&pw_value)
+			err := stmt.Scan(&userid, &pw_value)
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -46,7 +45,8 @@ func DoLogin(c echo.Context) error {
 		)
 
 		if pw_value == pass {
-			jsonResponse = "{\"message\": \"Login Successful!!\", \"value\": \"success\"}"
+			jsonResponse = getUserDataFromLogin(userid)
+			// "{\"message\": \"Login Successful!!\", \"value\": \"success\"}"
 		} else {
 			jsonResponse = "{\"message\": \"Password Incorect\", \"value\": \"failure\"}"
 		}
