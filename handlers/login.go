@@ -3,6 +3,7 @@ package handlers
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -23,6 +24,8 @@ func DoLogin(c echo.Context) error {
 			pw_value string
 			userid   string
 		)
+
+		fmt.Println("got to DoLogin!!!!!!")
 
 		db, err := sql.Open("mysql", "root:NovemberKazoo01!@tcp(127.0.0.1:3306)/thruplr")
 
