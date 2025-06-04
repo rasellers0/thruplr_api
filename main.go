@@ -2,9 +2,7 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
-	"strconv"
 	handler "thruplr_api/handlers"
 
 	// "net/http"
@@ -20,27 +18,25 @@ func main() {
 	e := echo.New()
 
 	// db connection
-	dbc := dbConnect()
+	// dbc := dbConnect()
 
-	var (
-		id   int
-		name string
-	)
+	// var (
+	// 	id   int
+	// 	name string
+	// )
 
-	rows, err := dbc.Query("select user_id, CONCAT(first_name, ' ', last_name) as name from users")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer rows.Close()
-	for rows.Next() {
-		err := rows.Scan(&id, &name)
-		fmt.Println(strconv.Itoa(id) + ": " + name)
-		if err != nil {
-			log.Fatal(err)
-		} else {
-			fmt.Println(id, name)
-		}
-	}
+	// rows, err := dbc.Query("select user_id, CONCAT(first_name, ' ', last_name) as name from users")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+	// defer rows.Close()
+	// for rows.Next() {
+	// 	err := rows.Scan(&id, &name)
+	// 	fmt.Println(strconv.Itoa(id) + ": " + name)
+	// 	if err != nil {
+	// 		log.Fatal(err)
+	// 	}
+	// }
 
 	// Middleware
 	e.Use(middleware.Logger())
@@ -53,6 +49,8 @@ func main() {
 	e.POST("/login", handler.DoLogin)
 	e.POST("*", handler.DoError)
 	e.GET("*", handler.DoError)
+
+	e.GET("/match-queue", handler.GetUserMatchCandidates)
 
 	// Start server
 	e.Logger.Fatal(e.Start(":1323"))

@@ -25,7 +25,7 @@ func DoLogin(c echo.Context) error {
 			userid   string
 		)
 
-		fmt.Println("got to DoLogin!!!!!!")
+		fmt.Println(name)
 
 		db, err := sql.Open("mysql", "root:NovemberKazoo01!@tcp(127.0.0.1:3306)/thruplr")
 
