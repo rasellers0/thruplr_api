@@ -5,5 +5,5 @@
 From thruplr_api root directory, run `go run main.go`
 
 
-The only dependency is the Echol REST API framework.
+The only dependency is the Echo REST API framework.
 
