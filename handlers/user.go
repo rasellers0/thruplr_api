@@ -3,7 +3,6 @@ package handlers
 import (
 	"database/sql"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 
@@ -32,8 +31,7 @@ type UserData struct {
 }
 
 func Hello(c echo.Context) error {
-	fmt.Println("so it'll hit here, ok")
-	return c.String(http.StatusOK, "Fuck you!")
+	return c.String(http.StatusOK, "Thruplr back end is successfully responding to REST requests.")
 }
 
 func getUserDataFromLogin(userid string) string {
